@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2874f0;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: auto;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px;
+            width: 180px;
+            text-align: center;
+        }
+        .product img {
+            width: 100px;
+            height: 100px;
+        }
+        @media (max-width: 600px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+            .product {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Student Flipkart Clone</h1>
+    <nav>
+        <div class="dropdown">
+            <button>Login</button>
+            <div class="dropdown-content">
+                <a href="#">Sign In</a>
+                <a href="#">Sign Up</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button>Categories</button>
+            <div class="dropdown-content">
+                <a href="#">Electronics</a>
+                <a href="#">Books</a>
+                <a href="#">Toys</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="carousel">
+    <div class="carousel-images">
+        <img src="https://i.gadgets360cdn.com/large/samsung_galaxy_s25_ultra_technizoconcept_1731133105366.jpg" alt="Slide 1">
+        <img src="https://udaipurkiran.in/wp-content/uploads/2024/11/Samsung-Galaxy-S25-Ultra.jpg" alt="Slide 2">
+        <img src="https://www.sammyfans.com/wp-content/uploads/2024/10/galaxy-s25-ultra-img1.jpg" alt="Slide 3">
+        <img src="https://thumbs.dreamstime.com/b/vector-illustration-isolated-white-background-special-discount-shopping-tag-label-special-discount-tag-label-red-120696777.jpg" alt="Slide 4">
+    </div>
+</div>
+
+<div class="products">
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/51EXj4BRQaL.jpg" alt="Product 1">
+        <h3>Product 1</h3>
+        <p>$100</p>
+    </div>
+    <div class="product">
+        <img src="https://api.thechennaimobiles.com/1719121334790.webp" alt="Product 2">
+        <h3>Product 2</h3>
+        <p>$200</p>
+    </div>
+    <div class="product">
+        <img src="https://www.apple.com/newsroom/images/product/imac/standard/Apple_imac-magickeyboardnum-magicmouse2-macos-wallpaper_08042020.jpg.og.jpg?202410291813" alt="Product 3">
+        <h3>Product 3</h3>
+        <p>$1500</p>
+    </div>
+</div>
+
+<script>
+    const carouselImages = document.querySelector('.carousel-images');
+    const images = carouselImages.children;
+    let index = 0;
+
+    function showNextImage() {
+        index = (index + 1) % images.length;
+        carouselImages.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(showNextImage, 3000);
+</script>
+
+</body>
+</html>
